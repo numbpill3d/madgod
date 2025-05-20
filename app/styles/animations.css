@@ -1,0 +1,507 @@
+/* CHIMERA - Animation Effects */
+
+/* Floating/Hover animation for UI elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glitch text effect for Lain theme */
+@keyframes glitch-anim {
+  0% {
+    clip: rect(44px, 450px, 56px, 0);
+    transform: skew(0.65deg);
+  }
+  5% {
+    clip: rect(6px, 450px, 39px, 0);
+    transform: skew(0.2deg);
+  }
+  10% {
+    clip: rect(91px, 450px, 31px, 0);
+    transform: skew(0.43deg);
+  }
+  15% {
+    clip: rect(65px, 450px, 93px, 0);
+    transform: skew(0.64deg);
+  }
+  20% {
+    clip: rect(2px, 450px, 28px, 0);
+    transform: skew(0.6deg);
+  }
+  25% {
+    clip: rect(31px, 450px, 88px, 0);
+    transform: skew(0.24deg);
+  }
+  30% {
+    clip: rect(57px, 450px, 16px, 0);
+    transform: skew(0.04deg);
+  }
+  35% {
+    clip: rect(81px, 450px, 93px, 0);
+    transform: skew(0.21deg);
+  }
+  40% {
+    clip: rect(24px, 450px, 18px, 0);
+    transform: skew(0.02deg);
+  }
+  45% {
+    clip: rect(20px, 450px, 83px, 0);
+    transform: skew(0.6deg);
+  }
+  50% {
+    clip: rect(15px, 450px, 76px, 0);
+    transform: skew(0.14deg);
+  }
+  55% {
+    clip: rect(64px, 450px, 34px, 0);
+    transform: skew(0.03deg);
+  }
+  60% {
+    clip: rect(36px, 450px, 63px, 0);
+    transform: skew(0.16deg);
+  }
+  65% {
+    clip: rect(93px, 450px, 47px, 0);
+    transform: skew(0.71deg);
+  }
+  70% {
+    clip: rect(71px, 450px, 11px, 0);
+    transform: skew(0.01deg);
+  }
+  75% {
+    clip: rect(46px, 450px, 1px, 0);
+    transform: skew(0.03deg);
+  }
+  80% {
+    clip: rect(94px, 450px, 9px, 0);
+    transform: skew(0.5deg);
+  }
+  85% {
+    clip: rect(85px, 450px, 89px, 0);
+    transform: skew(0.47deg);
+  }
+  90% {
+    clip: rect(54px, 450px, 29px, 0);
+    transform: skew(0.06deg);
+  }
+  95% {
+    clip: rect(62px, 450px, 85px, 0);
+    transform: skew(0.48deg);
+  }
+  100% {
+    clip: rect(32px, 450px, 28px, 0);
+    transform: skew(0.05deg);
+  }
+}
+
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -1px 0 #00ff00;
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: 1px 0 #ff0000;
+  animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+/* Dream bubble animation for editor windows */
+@keyframes bubble-float {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1),
+                0 0 20px rgba(255, 255, 255, 0.05),
+                0 0 30px rgba(255, 255, 255, 0.025);
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15),
+                0 0 25px rgba(255, 255, 255, 0.075),
+                0 0 35px rgba(255, 255, 255, 0.0375);
+    transform: translateY(-3px) scale(1.005);
+  }
+}
+
+.dream-bubble {
+  animation: bubble-float 8s ease-in-out infinite;
+}
+
+/* Neural thread pulsing animation */
+@keyframes neural-pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.neural-pulse {
+  animation: neural-pulse 2s ease-in-out infinite;
+}
+
+/* Magic rune glow animation for Morrowind theme */
+@keyframes rune-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px rgba(232, 203, 154, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(232, 203, 154, 0.6));
+  }
+}
+
+.rune-glow {
+  animation: rune-glow 4s ease-in-out infinite;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.typing-animation {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid;
+  width: 0;
+  animation: 
+    typing 2s steps(40, end) forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor; }
+}
+
+/* Portal/wormhole effect for Git operations */
+@keyframes portal-open {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes portal-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.portal-opening {
+  animation: portal-open 0.5s ease-out forwards;
+}
+
+.portal-spinning {
+  animation: portal-spin 5s linear infinite;
+}
+
+/* Fade in animation for UI elements */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+/* Staggered fade-in for multiple elements */
+.stagger-fade-in > * {
+  opacity: 0;
+}
+
+.stagger-fade-in > *:nth-child(1) {
+  animation: fade-in 0.5s ease-out 0.1s forwards;
+}
+
+.stagger-fade-in > *:nth-child(2) {
+  animation: fade-in 0.5s ease-out 0.2s forwards;
+}
+
+.stagger-fade-in > *:nth-child(3) {
+  animation: fade-in 0.5s ease-out 0.3s forwards;
+}
+
+.stagger-fade-in > *:nth-child(4) {
+  animation: fade-in 0.5s ease-out 0.4s forwards;
+}
+
+.stagger-fade-in > *:nth-child(5) {
+  animation: fade-in 0.5s ease-out 0.5s forwards;
+}
+
+/* Scroll unravel animation for file opening */
+@keyframes unravel {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: auto;
+    opacity: 1;
+  }
+}
+
+.scroll-unravel {
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  animation: unravel 0.6s ease-out forwards;
+}
+
+/* Soul gem effect for syntax highlights */
+@keyframes soul-gem-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px currentColor);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px currentColor);
+  }
+}
+
+.soul-gem {
+  animation: soul-gem-glow 3s ease-in-out infinite;
+}
+
+/* Error shake animation */
+@keyframes error-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+.error-shake {
+  animation: error-shake 0.5s ease-in-out;
+}
+
+/* Success pulse animation */
+@keyframes success-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(113, 158, 7, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(113, 158, 7, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(113, 158, 7, 0);
+  }
+}
+
+.success-pulse {
+  animation: success-pulse 1.5s ease-out;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  animation: spin 1.5s linear infinite;
+}
+
+/* Whisper message appearing animation */
+@keyframes message-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-appear {
+  animation: message-appear 0.3s ease-out forwards;
+}
+
+/* Neural thread node connection animation */
+@keyframes node-connect {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 20px;
+  }
+}
+
+.thread-line-connecting {
+  animation: node-connect 0.3s ease-out forwards;
+}
+
+/* Breathing animation for background elements */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.breathe {
+  animation: breathe 10s ease-in-out infinite;
+}
+
+/* Custom animations for specific UI interactions */
+
+/* Daedric button click animation */
+@keyframes button-click {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.button-click {
+  animation: button-click 0.2s ease-out;
+}
+
+/* File selection highlight animation */
+@keyframes file-select {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  30% {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.file-select {
+  animation: file-select 0.5s ease-out;
+}
+
+/* Tab switch animation */
+@keyframes tab-switch {
+  0% {
+    opacity: 0.5;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-switch {
+  animation: tab-switch 0.3s ease-out;
+}
+
+/* Focus animation for inputs */
+@keyframes input-focus {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.input-focus {
+  animation: input-focus 1s ease-out;
+}
+
+/* Reveal animation for panels */
+@keyframes panel-reveal {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.panel-reveal-left {
+  animation: panel-reveal 0.5s ease-out;
+}
+
+@keyframes panel-reveal-right {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.panel-reveal-right {
+  animation: panel-reveal-right 0.5s ease-out;
+}
+
+/* Theme switch transition */
+@keyframes theme-transition {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.theme-transition {
+  animation: theme-transition 1s ease;
+}

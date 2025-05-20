@@ -1,0 +1,447 @@
+/* CHIMERA - Lain Theme */
+/* Inspired by Serial Experiments Lain - cyber-psychedelic aesthetic */
+
+:root {
+  /* Base colors */
+  --background-color: #000000;
+  --foreground-color: #1d991d; /* Lain terminal green */
+  --highlight-color: #39ff14; /* Bright neon green */
+  --secondary-color: #0f4f0f; /* Darker green */
+  --tertiary-color: #440044; /* Deep purple for contrast */
+  
+  /* UI Element colors */
+  --titlebar-bg: #050505;
+  --titlebar-fg: var(--foreground-color);
+  
+  --panel-bg: #050505;
+  --panel-border: #111;
+  
+  --header-bg: #0a0a0a;
+  --header-fg: var(--highlight-color);
+  
+  --input-bg: #111;
+  --input-fg: var(--highlight-color);
+  --input-border: #222;
+  
+  --button-bg: #0a170a;
+  --button-fg: var(--foreground-color);
+  --button-hover: #0f220f;
+  
+  --tab-inactive-bg: #070707;
+  --tab-inactive-fg: #0f880f;
+  --tab-active-bg: #0a150a;
+  --tab-active-fg: var(--highlight-color);
+  
+  --status-bar-bg: #050505;
+  --status-bar-fg: var(--foreground-color);
+  
+  /* Modal dialog */
+  --modal-bg: #080808;
+  --modal-header-bg: #0a0a0a;
+  --modal-fg: var(--foreground-color);
+  
+  /* Scrollbars */
+  --scrollbar-bg: #060606;
+  --scrollbar-thumb: #0f4f0f;
+  
+  /* Error and notification colors */
+  --error-color: #ff3333;
+  --warning-color: #ffaa00;
+  --success-color: #33ff33;
+  --info-color: #33aaff;
+  
+  /* Animation speeds */
+  --transition-speed: 0.3s;
+  
+  /* File type colors */
+  --file-js: #b5bd68;
+  --file-html: #cc6666;
+  --file-css: #81a2be;
+  --file-json: #de935f;
+  --file-md: #b294bb;
+  --file-image: #8abeb7;
+  --file-unknown: #969896;
+}
+
+/* Apply base theme */
+body {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  font-family: 'LainTerminal', monospace;
+}
+
+/* Titlebar */
+#titlebar {
+  background-color: var(--titlebar-bg);
+  color: var(--titlebar-fg);
+  border-bottom: 1px solid var(--panel-border);
+}
+
+#titlebar-title {
+  font-family: 'LainTerminal', monospace;
+  letter-spacing: 2px;
+}
+
+.titlebar-btn {
+  color: var(--foreground-color);
+}
+
+.titlebar-btn:hover {
+  color: var(--highlight-color);
+}
+
+/* Panels */
+.panel {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+}
+
+#scroll-header, #whisper-header {
+  background-color: var(--header-bg);
+  color: var(--header-fg);
+  font-family: 'LainTerminal', monospace;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+/* Inputs */
+input, select, textarea {
+  background-color: var(--input-bg);
+  color: var(--input-fg);
+  border: 1px solid var(--input-border);
+  padding: 5px;
+  font-family: 'LainTerminal', monospace;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 1px solid var(--highlight-color);
+}
+
+/* Buttons */
+.daedric-btn {
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  font-family: 'LainTerminal', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all var(--transition-speed);
+}
+
+.daedric-btn:hover {
+  background-color: var(--button-hover);
+  color: var(--highlight-color);
+}
+
+.daedric-btn::before {
+  background-color: rgba(57, 255, 20, 0.1);
+}
+
+/* Editor tabs */
+.editor-tab {
+  background-color: var(--tab-inactive-bg);
+  color: var(--tab-inactive-fg);
+  transition: all var(--transition-speed);
+}
+
+.editor-tab.active {
+  background-color: var(--tab-active-bg);
+  color: var(--tab-active-fg);
+}
+
+.editor-tab.active::after {
+  background-color: var(--highlight-color);
+}
+
+.tab-close:hover {
+  background-color: var(--error-color);
+}
+
+/* Status bar */
+#status-bar {
+  background-color: var(--status-bar-bg);
+  color: var(--status-bar-fg);
+  border-top: 1px solid var(--panel-border);
+}
+
+#status-mode {
+  color: var(--highlight-color);
+}
+
+#neural-thread-indicator .thread-node {
+  background-color: var(--secondary-color);
+}
+
+#neural-thread-indicator .thread-node.active {
+  background-color: var(--highlight-color);
+}
+
+#neural-thread-indicator .thread-line {
+  background-color: var(--secondary-color);
+}
+
+/* Modal dialog */
+.modal-content {
+  background-color: var(--modal-bg);
+  color: var(--modal-fg);
+  border: 1px solid var(--panel-border);
+}
+
+.modal-header {
+  background-color: var(--modal-header-bg);
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.modal-footer {
+  border-top: 1px solid var(--panel-border);
+}
+
+/* Loading lore screen */
+#loading-lore {
+  background-color: var(--background-color);
+  color: var(--highlight-color);
+}
+
+#loading-sigil {
+  border: 2px solid var(--foreground-color);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(29, 153, 29, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(29, 153, 29, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(29, 153, 29, 0);
+  }
+}
+
+#loading-text {
+  font-family: 'LainTerminal', monospace;
+  text-align: center;
+  max-width: 600px;
+  letter-spacing: 1px;
+}
+
+/* File explorer */
+.file-item:hover {
+  background-color: rgba(57, 255, 20, 0.1);
+}
+
+.file-item.active {
+  background-color: rgba(57, 255, 20, 0.2);
+}
+
+/* Whisper messages */
+.whisper-message.from-ai {
+  background-color: var(--secondary-color);
+  border-left: 3px solid var(--highlight-color);
+}
+
+.whisper-message.from-user {
+  background-color: var(--tertiary-color);
+  border-right: 3px solid var(--highlight-color);
+}
+
+/* Git portal */
+.portal-status {
+  background-color: var(--secondary-color);
+}
+
+.portal-status.modified {
+  background-color: var(--warning-color);
+}
+
+.portal-status.staged {
+  background-color: var(--info-color);
+}
+
+.portal-status.clean {
+  background-color: var(--success-color);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--highlight-color);
+}
+
+/* File type colors */
+.file-js .file-icon { color: var(--file-js); }
+.file-html .file-icon { color: var(--file-html); }
+.file-css .file-icon { color: var(--file-css); }
+.file-json .file-icon { color: var(--file-json); }
+.file-md .file-icon { color: var(--file-md); }
+.file-image .file-icon { color: var(--file-image); }
+.file-unknown .file-icon { color: var(--file-unknown); }
+
+/* Loading animation */
+.loading-animation {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 20px;
+}
+
+.loading-animation div {
+  position: absolute;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--highlight-color);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.loading-animation div:nth-child(1) {
+  left: 8px;
+  animation: loading1 0.6s infinite;
+}
+
+.loading-animation div:nth-child(2) {
+  left: 8px;
+  animation: loading2 0.6s infinite;
+}
+
+.loading-animation div:nth-child(3) {
+  left: 32px;
+  animation: loading2 0.6s infinite;
+}
+
+.loading-animation div:nth-child(4) {
+  left: 56px;
+  animation: loading3 0.6s infinite;
+}
+
+@keyframes loading1 {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+@keyframes loading2 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(24px, 0); }
+}
+
+@keyframes loading3 {
+  0% { transform: scale(1); }
+  100% { transform: scale(0); }
+}
+
+/* Glitch effect */
+.glitch-text {
+  position: relative;
+  animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--highlight-color);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -2px 0 var(--error-color);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(38px, 9999px, 11px, 0); transform: skew(0.72deg); }
+  5% { clip: rect(66px, 9999px, 83px, 0); transform: skew(0.43deg); }
+  10% { clip: rect(7px, 9999px, 5px, 0); transform: skew(0.76deg); }
+  15% { clip: rect(40px, 9999px, 41px, 0); transform: skew(0.75deg); }
+  20% { clip: rect(33px, 9999px, 56px, 0); transform: skew(0.3deg); }
+  25% { clip: rect(46px, 9999px, 92px, 0); transform: skew(0.71deg); }
+  30% { clip: rect(8px, 9999px, 25px, 0); transform: skew(0.97deg); }
+  35% { clip: rect(47px, 9999px, 59px, 0); transform: skew(0.37deg); }
+  40% { clip: rect(73px, 9999px, 76px, 0); transform: skew(0.11deg); }
+  45% { clip: rect(62px, 9999px, 10px, 0); transform: skew(0.23deg); }
+  50% { clip: rect(81px, 9999px, 47px, 0); transform: skew(0.4deg); }
+  55% { clip: rect(19px, 9999px, 85px, 0); transform: skew(0.67deg); }
+  60% { clip: rect(93px, 9999px, 59px, 0); transform: skew(0.69deg); }
+  65% { clip: rect(5px, 9999px, 59px, 0); transform: skew(0.16deg); }
+  70% { clip: rect(99px, 9999px, 19px, 0); transform: skew(0.2deg); }
+  75% { clip: rect(98px, 9999px, 75px, 0); transform: skew(0.05deg); }
+  80% { clip: rect(41px, 9999px, 36px, 0); transform: skew(0.16deg); }
+  85% { clip: rect(64px, 9999px, 57px, 0); transform: skew(0.96deg); }
+  90% { clip: rect(67px, 9999px, 47px, 0); transform: skew(0.19deg); }
+  95% { clip: rect(24px, 9999px, 100px, 0); transform: skew(0.67deg); }
+  100% { clip: rect(75px, 9999px, 15px, 0); transform: skew(0.77deg); }
+}
+
+@keyframes glitch-anim2 {
+  0% { clip: rect(93px, 9999px, 88px, 0); transform: skew(0.11deg); }
+  5% { clip: rect(42px, 9999px, 91px, 0); transform: skew(0.76deg); }
+  10% { clip: rect(21px, 9999px, 25px, 0); transform: skew(0.5deg); }
+  15% { clip: rect(99px, 9999px, 32px, 0); transform: skew(0.11deg); }
+  20% { clip: rect(36px, 9999px, 93px, 0); transform: skew(0.84deg); }
+  25% { clip: rect(62px, 9999px, 36px, 0); transform: skew(0.89deg); }
+  30% { clip: rect(29px, 9999px, 3px, 0); transform: skew(0.03deg); }
+  35% { clip: rect(83px, 9999px, 43px, 0); transform: skew(0.11deg); }
+  40% { clip: rect(13px, 9999px, 81px, 0); transform: skew(0.42deg); }
+  45% { clip: rect(34px, 9999px, 65px, 0); transform: skew(0.34deg); }
+  50% { clip: rect(85px, 9999px, 42px, 0); transform: skew(0.82deg); }
+  55% { clip: rect(69px, 9999px, 66px, 0); transform: skew(0.14deg); }
+  60% { clip: rect(20px, 9999px, 29px, 0); transform: skew(0.1deg); }
+  65% { clip: rect(59px, 9999px, 70px, 0); transform: skew(0.15deg); }
+  70% { clip: rect(31px, 9999px, 21px, 0); transform: skew(0.72deg); }
+  75% { clip: rect(8px, 9999px, 40px, 0); transform: skew(0.25deg); }
+  80% { clip: rect(26px, 9999px, 33px, 0); transform: skew(0.67deg); }
+  85% { clip: rect(49px, 9999px, 63px, 0); transform: skew(0.69deg); }
+  90% { clip: rect(88px, 9999px, 30px, 0); transform: skew(0.96deg); }
+  95% { clip: rect(44px, 9999px, 71px, 0); transform: skew(0.83deg); }
+  100% { clip: rect(35px, 9999px, 25px, 0); transform: skew(0.58deg); }
+}
+
+@keyframes glitch-skew {
+  0% { transform: skew(1deg); }
+  10% { transform: skew(0deg); }
+  20% { transform: skew(1deg); }
+  30% { transform: skew(-1deg); }
+  40% { transform: skew(0deg); }
+  50% { transform: skew(-1deg); }
+  60% { transform: skew(2deg); }
+  70% { transform: skew(-2deg); }
+  80% { transform: skew(1deg); }
+  90% { transform: skew(0deg); }
+  100% { transform: skew(-1deg); }
+}
+
+/* Monaco Editor theme overrides */
+.monaco-editor .monaco-scrollable-element .scrollbar {
+  background-color: var(--scrollbar-bg) !important;
+}
+
+.monaco-editor .monaco-scrollable-element .slider {
+  background-color: var(--scrollbar-thumb) !important;
+}

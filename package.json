@@ -1,0 +1,50 @@
+{
+  "name": "chimera-code-editor",
+  "version": "1.0.0",
+  "description": "Cybernetic Hypertextual Interface for Modular Embedded Runtime Authoring - A VSCode replacement with Serial Experiments Lain and Morrowind aesthetics",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --debug",
+    "build": "electron-builder",
+    "package": "electron-builder --dir"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chimera-code-editor": "file:",
+    "chokidar": "^3.5.3",
+    "electron-store": "^8.1.0",
+    "fs-extra": "^11.2.0",
+    "howler": "^2.2.4",
+    "marked": "^4.3.0",
+    "monaco-editor": "^0.44.0",
+    "pixi.js": "^7.3.2",
+    "simple-git": "^3.22.0",
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.chimera.editor",
+    "productName": "CHIMERA",
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Development"
+    }
+  }
+}
