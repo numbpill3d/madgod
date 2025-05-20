@@ -1,5 +1,5 @@
 {
-  "name": "madgod",
+  "name": "chimera-code-editor",
   "version": "1.0.0",
   "description": "Cybernetic Hypertextual Interface for Modular Embedded Runtime Authoring - A VSCode replacement with Serial Experiments Lain and Morrowind aesthetics",
   "main": "main.js",
@@ -17,7 +17,6 @@
     "electron-store": "^8.1.0",
     "fs-extra": "^11.2.0",
     "howler": "^2.2.4",
-    "madgod": "file:",
     "marked": "^4.3.0",
     "monaco-editor": "^0.44.0",
     "pixi.js": "^7.3.2",

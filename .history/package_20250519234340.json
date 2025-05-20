@@ -17,7 +17,6 @@
     "electron-store": "^8.1.0",
     "fs-extra": "^11.2.0",
     "howler": "^2.2.4",
-    "madgod": "file:",
     "marked": "^4.3.0",
     "monaco-editor": "^0.44.0",
     "pixi.js": "^7.3.2",
@@ -49,3 +48,4 @@
     }
   }
 }
+
