@@ -1,472 +1,393 @@
-/* CHIMERA - Morrowind Theme */
-/* Inspired by The Elder Scrolls III: Morrowind - mystical, ancient scrolls aesthetic */
+/* CHIMERA Code Editor - Morrowind Theme */
+/* Inspired by The Elder Scrolls III: Morrowind and ancient scrolls */
 
 :root {
-  /* Base colors */
-  --background-color: #211913; /* Dark parchment brown */
-  --foreground-color: #d3b88c; /* Light parchment */
-  --highlight-color: #e8cb9a; /* Lighter parchment highlight */
-  --secondary-color: #a77d46; /* Brown accent */
-  --tertiary-color: #582500; /* Deep brown */
-  
-  /* UI Element colors */
-  --titlebar-bg: #1a130f;
-  --titlebar-fg: var(--foreground-color);
-  
-  --panel-bg: #1d1510;
-  --panel-border: #3a2a1c;
-  
-  --header-bg: #251b14;
-  --header-fg: var(--highlight-color);
-  
-  --input-bg: #2a1f16;
-  --input-fg: var(--highlight-color);
-  --input-border: #452b17;
-  
-  --button-bg: #362418;
-  --button-fg: var(--foreground-color);
-  --button-hover: #4a3321;
-  
-  --tab-inactive-bg: #251b14;
-  --tab-inactive-fg: #b39e76;
-  --tab-active-bg: #35281d;
-  --tab-active-fg: var(--highlight-color);
-  
-  --status-bar-bg: #1a130f;
-  --status-bar-fg: var(--foreground-color);
-  
-  /* Modal dialog */
-  --modal-bg: #251b14;
-  --modal-header-bg: #2a1f16;
-  --modal-fg: var(--foreground-color);
-  
-  /* Scrollbars */
-  --scrollbar-bg: #251b14;
-  --scrollbar-thumb: #4a3321;
-  
-  /* Error and notification colors */
-  --error-color: #cb4b16; /* Red-orange */
-  --warning-color: #b58900; /* Amber */
-  --success-color: #719e07; /* Green */
-  --info-color: #268bd2; /* Blue */
-  
-  /* Animation speeds */
-  --transition-speed: 0.3s;
-  
-  /* File type colors */
-  --file-js: #b58900; /* Amber */
-  --file-html: #cb4b16; /* Red-orange */
-  --file-css: #268bd2; /* Blue */
-  --file-json: #dc322f; /* Red */
-  --file-md: #6c71c4; /* Violet */
-  --file-image: #2aa198; /* Cyan */
-  --file-unknown: #839496; /* Base0 */
+  --morrowind-bg: #1a1410;
+  --morrowind-bg-alt: #241c15;
+  --morrowind-text: #e8cba0;
+  --morrowind-text-dim: #a78d5d;
+  --morrowind-accent: #d7a45e; /* Gold */
+  --morrowind-accent-dim: #8e6c3d;
+  --morrowind-border: #3c2e1e;
+  --morrowind-shadow: rgba(215, 164, 94, 0.2);
+  --morrowind-error: #b33a3a;
+  --morrowind-warning: #b38a3a;
+  --morrowind-success: #7a943c;
+  --morrowind-selection: rgba(215, 164, 94, 0.2);
+  --morrowind-parchment: #f5e7cb;
 }
 
-/* Apply base theme */
-body {
-  background-color: var(--background-color);
-  color: var(--foreground-color);
-  font-family: 'DaedricFont', serif;
-  background-image: url('../assets/images/backgrounds/parchment-texture.png');
+/* Apply theme to body */
+body.theme-morrowind {
+  background-color: var(--morrowind-bg);
+  color: var(--morrowind-text);
+  font-family: 'Daedric', serif;
+  background-image: url('../../assets/images/backgrounds/parchment-bg.png');
   background-repeat: repeat;
-  background-size: 400px;
+  background-size: 300px;
 }
 
-/* Titlebar */
-#titlebar {
-  background-color: var(--titlebar-bg);
-  color: var(--titlebar-fg);
-  border-bottom: 1px solid var(--panel-border);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+/* Window Controls */
+.theme-morrowind .window-controls {
+  background-color: var(--morrowind-bg-alt);
+  border-bottom: 1px solid var(--morrowind-border);
 }
 
-#titlebar-title {
-  font-family: 'DaedricFont', serif;
-  letter-spacing: 3px;
+.theme-morrowind .window-controls button {
+  color: var(--morrowind-text);
 }
 
-.titlebar-btn {
-  color: var(--foreground-color);
+.theme-morrowind .window-controls button:hover {
+  color: var(--morrowind-accent);
 }
 
-.titlebar-btn:hover {
-  color: var(--highlight-color);
+/* Sidebar */
+.theme-morrowind .sidebar {
+  background-color: var(--morrowind-bg-alt);
+  border-right: 1px solid var(--morrowind-border);
+  background-image: url('../../assets/images/backgrounds/scroll-edge.png');
+  background-repeat: repeat-y;
+  background-position: right;
+  background-size: 20px;
 }
 
-/* Panels */
-.panel {
-  background-color: var(--panel-bg);
-  border: 1px solid var(--panel-border);
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
-  background-image: url('../assets/images/backgrounds/scroll-texture.png');
+/* File Explorer */
+.theme-morrowind .file-explorer-header {
+  border-bottom: 1px solid var(--morrowind-border);
+}
+
+.theme-morrowind .file-explorer-header h3 {
+  color: var(--morrowind-accent);
+  font-family: 'Daedric', serif;
+}
+
+.theme-morrowind .file-explorer-actions button {
+  color: var(--morrowind-text);
+}
+
+.theme-morrowind .file-explorer-actions button:hover {
+  color: var(--morrowind-accent);
+}
+
+.theme-morrowind .file-search {
+  background-color: var(--morrowind-bg);
+  color: var(--morrowind-text);
+  border-color: var(--morrowind-border);
+  font-family: 'Daedric', serif;
+}
+
+.theme-morrowind .file-search:focus {
+  border-color: var(--morrowind-accent-dim);
+  box-shadow: 0 0 5px var(--morrowind-shadow);
+}
+
+.theme-morrowind .directory-name:hover {
+  background-color: rgba(215, 164, 94, 0.1);
+}
+
+.theme-morrowind .file-name:hover {
+  background-color: rgba(215, 164, 94, 0.1);
+}
+
+.theme-morrowind .directory.expanded > .directory-name {
+  color: var(--morrowind-accent);
+}
+
+/* Editor Area */
+.theme-morrowind .editor-tabs {
+  background-color: var(--morrowind-bg-alt);
+  border-bottom: 1px solid var(--morrowind-border);
+}
+
+.theme-morrowind .editor-tab {
+  background-color: var(--morrowind-bg-alt);
+  color: var(--morrowind-text-dim);
+  border-right-color: var(--morrowind-border);
+}
+
+.theme-morrowind .editor-tab.active {
+  background-color: var(--morrowind-bg);
+  color: var(--morrowind-accent);
+  border-bottom: 2px solid var(--morrowind-accent);
+}
+
+.theme-morrowind .editor-tab:hover {
+  color: var(--morrowind-text);
+}
+
+.theme-morrowind .tab-close:hover {
+  background-color: rgba(179, 58, 58, 0.2);
+}
+
+.theme-morrowind .editor-container {
+  background-color: var(--morrowind-bg);
+  background-image: url('../../assets/images/backgrounds/parchment-light.png');
   background-repeat: repeat;
-  background-size: 200px;
+  background-size: 300px;
 }
 
-#scroll-header, #whisper-header {
-  background-color: var(--header-bg);
-  color: var(--header-fg);
-  font-family: 'DaedricFont', serif;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  border-bottom: 1px solid var(--panel-border);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+/* Monaco Editor Simulation */
+.theme-morrowind .monaco-editor-simulation {
+  background-color: var(--morrowind-parchment);
+  color: #3c2e1e;
+  border: 1px solid var(--morrowind-border);
+  font-family: 'Daedric', serif;
 }
 
-/* Inputs */
-input, select, textarea {
-  background-color: var(--input-bg);
-  color: var(--input-fg);
-  border: 1px solid var(--input-border);
-  padding: 5px;
-  font-family: 'LainTerminal', monospace;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+.theme-morrowind .monaco-editor-simulation[data-theme="morrowind"] {
+  border-color: var(--morrowind-accent-dim);
+  box-shadow: inset 0 0 10px var(--morrowind-shadow);
 }
 
-input:focus, select:focus, textarea:focus {
-  outline: 1px solid var(--highlight-color);
+/* Bottom Panel */
+.theme-morrowind .bottom-panel {
+  background-color: var(--morrowind-bg-alt);
+  border-top: 1px solid var(--morrowind-border);
 }
 
-/* Buttons */
-.daedric-btn {
-  background-color: var(--button-bg);
-  color: var(--button-fg);
-  font-family: 'DaedricFont', serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: all var(--transition-speed);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-  border: 1px solid var(--panel-border);
+/* Whisper Panel */
+.theme-morrowind .whisper-container {
+  border-right-color: var(--morrowind-border);
 }
 
-.daedric-btn:hover {
-  background-color: var(--button-hover);
-  color: var(--highlight-color);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+.theme-morrowind .whisper-header {
+  color: var(--morrowind-accent);
+  border-bottom: 1px solid var(--morrowind-border);
 }
 
-.daedric-btn::before {
-  background-color: rgba(232, 203, 154, 0.1);
+.theme-morrowind .whisper-message {
+  background-color: var(--morrowind-bg);
+  border: 1px solid var(--morrowind-border);
 }
 
-/* Editor tabs */
-.editor-tab {
-  background-color: var(--tab-inactive-bg);
-  color: var(--tab-inactive-fg);
-  transition: all var(--transition-speed);
-  border-right: 1px solid var(--panel-border);
-  font-family: 'DaedricFont', serif;
+.theme-morrowind .whisper-message.from-user {
+  background-color: rgba(215, 164, 94, 0.1);
+  border-color: var(--morrowind-accent-dim);
 }
 
-.editor-tab.active {
-  background-color: var(--tab-active-bg);
-  color: var(--tab-active-fg);
+.theme-morrowind .whisper-message.from-ai {
+  border-left: 3px solid var(--morrowind-accent);
 }
 
-.editor-tab.active::after {
-  background-color: var(--secondary-color);
+.theme-morrowind .whisper-input input {
+  background-color: var(--morrowind-bg);
+  color: var(--morrowind-text);
+  border-color: var(--morrowind-border);
+  font-family: 'Daedric', serif;
 }
 
-.tab-close:hover {
-  background-color: var(--error-color);
+.theme-morrowind .whisper-input input:focus {
+  border-color: var(--morrowind-accent-dim);
+  box-shadow: 0 0 5px var(--morrowind-shadow);
 }
 
-/* Status bar */
-#status-bar {
-  background-color: var(--status-bar-bg);
-  color: var(--status-bar-fg);
-  border-top: 1px solid var(--panel-border);
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+.theme-morrowind .whisper-input button {
+  background-color: var(--morrowind-bg);
+  color: var(--morrowind-accent);
+  border-color: var(--morrowind-accent-dim);
 }
 
-#status-mode {
-  color: var(--highlight-color);
-  font-family: 'DaedricFont', serif;
+.theme-morrowind .whisper-input button:hover {
+  background-color: var(--morrowind-accent-dim);
+  color: var(--morrowind-bg);
 }
 
-#neural-thread-indicator .thread-node {
-  background-color: var(--secondary-color);
-  border: 1px solid var(--foreground-color);
+/* Task Runner */
+.theme-morrowind .task-header {
+  color: var(--morrowind-accent);
+  border-bottom: 1px solid var(--morrowind-border);
 }
 
-#neural-thread-indicator .thread-node.active {
-  background-color: var(--highlight-color);
+.theme-morrowind .task-controls select {
+  background-color: var(--morrowind-bg);
+  color: var(--morrowind-text);
+  border-color: var(--morrowind-border);
+  font-family: 'Daedric', serif;
 }
 
-#neural-thread-indicator .thread-line {
-  background-color: var(--secondary-color);
+.theme-morrowind .task-controls select:focus {
+  border-color: var(--morrowind-accent-dim);
+  box-shadow: 0 0 5px var(--morrowind-shadow);
 }
 
-/* Modal dialog */
-.modal-content {
-  background-color: var(--modal-bg);
-  color: var(--modal-fg);
-  border: 2px solid var(--panel-border);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-  background-image: url('../assets/images/backgrounds/scroll-texture.png');
-  background-repeat: repeat;
-  background-size: 200px;
+.theme-morrowind .task-controls button {
+  background-color: var(--morrowind-bg);
+  color: var(--morrowind-text);
+  border-color: var(--morrowind-border);
 }
 
-.modal-header {
-  background-color: var(--modal-header-bg);
-  border-bottom: 1px solid var(--panel-border);
-  font-family: 'DaedricFont', serif;
+.theme-morrowind .task-controls button:hover:not(:disabled) {
+  background-color: var(--morrowind-accent-dim);
+  color: var(--morrowind-bg);
+  border-color: var(--morrowind-accent);
 }
 
-.modal-footer {
-  border-top: 1px solid var(--panel-border);
+.theme-morrowind .task-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-/* Loading lore screen */
-#loading-lore {
-  background-color: var(--background-color);
-  color: var(--highlight-color);
-  background-image: url('../assets/images/backgrounds/parchment-texture.png');
-  background-repeat: repeat;
-  background-size: 400px;
+.theme-morrowind .task-output {
+  background-color: var(--morrowind-bg);
+  color: var(--morrowind-text);
+  border: 1px solid var(--morrowind-border);
+  font-family: 'Daedric', serif;
 }
 
-#loading-sigil {
-  background-image: url('../assets/images/ui/daedric-sigil.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  animation: rotate 4s infinite linear;
+/* Git Portal */
+.theme-morrowind .git-portal {
+  border-left-color: var(--morrowind-border);
 }
 
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.theme-morrowind .git-header {
+  color: var(--morrowind-accent);
+  border-bottom: 1px solid var(--morrowind-border);
 }
 
-#loading-text {
-  font-family: 'DaedricFont', serif;
-  text-align: center;
-  max-width: 600px;
-  letter-spacing: 2px;
+.theme-morrowind .git-branch-label {
+  color: var(--morrowind-accent);
 }
 
-/* File explorer */
-.file-item:hover {
-  background-color: rgba(232, 203, 154, 0.1);
+.theme-morrowind .git-sync-label {
+  color: var(--morrowind-text-dim);
 }
 
-.file-item.active {
-  background-color: rgba(232, 203, 154, 0.2);
+.theme-morrowind .git-section-header {
+  color: var(--morrowind-accent-dim);
 }
 
-/* Whisper messages */
-.whisper-message.from-ai {
-  background-color: var(--tertiary-color);
-  border-left: 3px solid var(--secondary-color);
-  font-family: 'DaedricFont', serif;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+.theme-morrowind .git-file-item {
+  background-color: var(--morrowind-bg);
+  border: 1px solid var(--morrowind-border);
 }
 
-.whisper-message.from-user {
-  background-color: var(--panel-bg);
-  border-right: 3px solid var(--secondary-color);
-  font-family: 'LainTerminal', monospace;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+.theme-morrowind .git-file-item.empty {
+  color: var(--morrowind-text-dim);
+  font-style: italic;
 }
 
-/* Git portal */
-.portal-status {
-  background-color: var(--secondary-color);
-  border: 1px solid var(--foreground-color);
+.theme-morrowind .git-file-item button {
+  background-color: var(--morrowind-bg);
+  color: var(--morrowind-text);
+  border-color: var(--morrowind-border);
 }
 
-.portal-status.modified {
-  background-color: var(--warning-color);
+.theme-morrowind .git-file-item button:hover {
+  background-color: var(--morrowind-accent-dim);
+  color: var(--morrowind-bg);
+  border-color: var(--morrowind-accent);
 }
 
-.portal-status.staged {
-  background-color: var(--info-color);
+.theme-morrowind .git-commit input {
+  background-color: var(--morrowind-bg);
+  color: var(--morrowind-text);
+  border-color: var(--morrowind-border);
+  font-family: 'Daedric', serif;
 }
 
-.portal-status.clean {
-  background-color: var(--success-color);
+.theme-morrowind .git-commit input:focus {
+  border-color: var(--morrowind-accent-dim);
+  box-shadow: 0 0 5px var(--morrowind-shadow);
+}
+
+.theme-morrowind .git-commit-actions button {
+  background-color: var(--morrowind-bg);
+  color: var(--morrowind-text);
+  border-color: var(--morrowind-border);
+}
+
+.theme-morrowind .git-commit-actions button:hover {
+  background-color: var(--morrowind-accent-dim);
+  color: var(--morrowind-bg);
+  border-color: var(--morrowind-accent);
+}
+
+/* Canvas Overlays */
+.theme-morrowind #portal-canvas.active {
+  animation: morrowind-portal-pulse 2s infinite;
+}
+
+@keyframes morrowind-portal-pulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* Neural Thread */
+.theme-morrowind .neural-thread {
+  opacity: 0.7;
+}
+
+.theme-morrowind .thread-node {
+  background-color: var(--morrowind-accent);
+  box-shadow: 0 0 5px var(--morrowind-accent);
+}
+
+.theme-morrowind .thread-node::after {
+  color: var(--morrowind-accent-dim);
+}
+
+.theme-morrowind .thread-line {
+  background-color: var(--morrowind-accent-dim);
+}
+
+/* Panel Styling */
+.theme-morrowind .panel {
+  background-color: var(--morrowind-bg-alt);
+  border: 1px solid var(--morrowind-border);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Daedric UI Elements */
+.theme-morrowind .magic-text {
+  font-family: 'Daedric', serif;
+  color: var(--morrowind-accent);
+  text-shadow: 0 0 5px var(--morrowind-shadow);
+}
+
+.theme-morrowind .neural-data {
+  font-family: 'Daedric', serif;
+  color: var(--morrowind-text);
 }
 
 /* Scrollbars */
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+.theme-morrowind ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-::-webkit-scrollbar-track {
-  background-color: var(--scrollbar-bg);
-  border-radius: 0;
+.theme-morrowind ::-webkit-scrollbar-track {
+  background: var(--morrowind-bg);
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb);
-  border: 1px solid var(--panel-border);
-  border-radius: 0;
+.theme-morrowind ::-webkit-scrollbar-thumb {
+  background: var(--morrowind-accent-dim);
+  border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--secondary-color);
+.theme-morrowind ::-webkit-scrollbar-thumb:hover {
+  background: var(--morrowind-accent);
 }
 
-/* File type colors */
-.file-js .file-icon { color: var(--file-js); }
-.file-html .file-icon { color: var(--file-html); }
-.file-css .file-icon { color: var(--file-css); }
-.file-json .file-icon { color: var(--file-json); }
-.file-md .file-icon { color: var(--file-md); }
-.file-image .file-icon { color: var(--file-image); }
-.file-unknown .file-icon { color: var(--file-unknown); }
-
-/* Loading animation */
-.loading-animation {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 20px;
+/* Selection */
+.theme-morrowind ::selection {
+  background-color: var(--morrowind-selection);
+  color: var(--morrowind-accent);
 }
 
-.loading-animation div {
-  position: absolute;
-  top: 8px;
-  width: 16px;
-  height: 16px;
-  border-radius: 0;
-  background: var(--highlight-color);
-  animation-timing-function: cubic-bezier(0, 1, 1, 0);
-  transform: rotate(45deg);
+/* Daedric Buttons */
+.theme-morrowind .daedric-btn {
+  font-family: 'Daedric', serif;
+  background-color: var(--morrowind-bg);
+  color: var(--morrowind-accent);
+  border: 2px solid var(--morrowind-accent-dim);
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.loading-animation div:nth-child(1) {
-  left: 8px;
-  animation: loading1-morrowind 0.6s infinite;
-}
-
-.loading-animation div:nth-child(2) {
-  left: 8px;
-  animation: loading2-morrowind 0.6s infinite;
-}
-
-.loading-animation div:nth-child(3) {
-  left: 32px;
-  animation: loading2-morrowind 0.6s infinite;
-}
-
-.loading-animation div:nth-child(4) {
-  left: 56px;
-  animation: loading3-morrowind 0.6s infinite;
-}
-
-@keyframes loading1-morrowind {
-  0% { transform: scale(0) rotate(45deg); }
-  100% { transform: scale(1) rotate(45deg); }
-}
-
-@keyframes loading2-morrowind {
-  0% { transform: translate(0, 0) rotate(45deg); }
-  100% { transform: translate(24px, 0) rotate(45deg); }
-}
-
-@keyframes loading3-morrowind {
-  0% { transform: scale(1) rotate(45deg); }
-  100% { transform: scale(0) rotate(45deg); }
-}
-
-/* Magical effects */
-.magic-text {
-  position: relative;
-  animation: float 3s ease-in-out infinite;
-}
-
-.magic-text::before {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  background: radial-gradient(ellipse at center, rgba(232, 203, 154, 0.2) 0%, rgba(232, 203, 154, 0) 70%);
-  z-index: -1;
-  opacity: 0;
-  animation: pulse-light 3s infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-@keyframes pulse-light {
-  0%, 100% { opacity: 0; }
-  50% { opacity: 1; }
-}
-
-/* Paper texture effect for panels */
-.panel::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('../assets/images/backgrounds/paper-grain.png');
-  background-repeat: repeat;
-  background-size: 100px;
-  opacity: 0.03;
-  pointer-events: none;
-}
-
-/* Directional ambient light on panels */
-.panel::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(232, 203, 154, 0.03) 0%, rgba(232, 203, 154, 0) 40%);
-  pointer-events: none;
-}
-
-/* Monaco Editor theme overrides */
-.monaco-editor .monaco-scrollable-element .scrollbar {
-  background-color: var(--scrollbar-bg) !important;
-}
-
-.monaco-editor .monaco-scrollable-element .slider {
-  background-color: var(--scrollbar-thumb) !important;
-}
-
-/* Custom Daedric Scroll Styling */
-#file-explorer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 10px;
-  width: calc(100% - 20px);
-  height: 20px;
-  background-image: url('../assets/images/ui/scroll-top.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  pointer-events: none;
-}
-
-#file-explorer::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 10px;
-  width: calc(100% - 20px);
-  height: 20px;
-  background-image: url('../assets/images/ui/scroll-bottom.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  pointer-events: none;
-}
-
-/* Magical illuminated border for active elements */
-.editor-tab.active, input:focus, .daedric-btn:hover {
-  box-shadow: 0 0 5px rgba(232, 203, 154, 0.5);
+.theme-morrowind .daedric-btn:hover {
+  background-color: var(--morrowind-accent-dim);
+  color: var(--morrowind-parchment);
+  box-shadow: 0 0 10px var(--morrowind-shadow);
 }

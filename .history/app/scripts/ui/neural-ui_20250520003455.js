@@ -513,7 +513,7 @@ const addNeuralEventHandlers = () => {
   });
 
   // Whisper message
-  document.addEventListener('whisper-message', () => {
+  document.addEventListener('whisper-message', (e) => {
     if (isActive && neuralOverlay) {
       addTerminalLine('> NEURAL COMMUNICATION ACTIVE');
     }

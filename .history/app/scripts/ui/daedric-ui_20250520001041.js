@@ -13,8 +13,8 @@ let isActive = false;
 // Initialize Daedric UI elements
 const initDaedricUI = () => {
   // Monitor theme changes
-  const body = document.body;
-  const currentTheme = body.classList.contains('theme-lain') ? 'lain' : 'morrowind';
+  const themeStylesheet = document.getElementById('theme-stylesheet');
+  const currentTheme = themeStylesheet.href.includes('lain') ? 'lain' : 'morrowind';
 
   // Only apply Daedric UI for Morrowind theme
   if (currentTheme === 'morrowind') {
@@ -24,8 +24,8 @@ const initDaedricUI = () => {
   // Observer for theme changes
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
-      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-        const newTheme = body.classList.contains('theme-lain') ? 'lain' : 'morrowind';
+      if (mutation.type === 'attributes' && mutation.attributeName === 'href') {
+        const newTheme = themeStylesheet.href.includes('lain') ? 'lain' : 'morrowind';
 
         if (newTheme === 'morrowind' && !isActive) {
           activateDaedricUI();
@@ -36,7 +36,7 @@ const initDaedricUI = () => {
     });
   });
 
-  observer.observe(body, { attributes: true });
+  observer.observe(themeStylesheet, { attributes: true });
 
   // Add custom event handlers
   addDaedricEventHandlers();
@@ -516,6 +516,146 @@ const addDaedricHoverEffects = () => {
 // Remove Daedric hover effects
 const removeDaedricHoverEffects = () => {
   // Remove event listeners
+  const items = document.querySelectorAll('[data-daedric-hover]');
+  items.forEach(item => {
+    item.removeEventListener('mouseenter', triggerItemHoverEffect);
+    item.removeAttribute('data-daedric-hover');
+  });
+
+  // Disconnect observer
+  if (window.daedricHoverObserver) {
+    window.daedricHoverObserver.disconnect();
+    window.daedricHoverObserver = null;
+  }
+};
+
+// Trigger magical effect on button click
+const triggerButtonEffect = (event) => {
+  // Only if we're in the Morrowind theme
+  if (!isActive) return;
+
+  const button = event.currentTarget;
+
+  // Create magical glow effect
+  const glow = document.createElement('div');
+  glow.className = 'magic-glow-effect';
+  glow.style.cssText = `
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    background: radial-gradient(
+      circle,
+      rgba(255, 215, 0, 0.4) 0%,
+      rgba(255, 215, 0, 0.1) 50%,
+      rgba(255, 215, 0, 0) 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    animation: magic-pulse 0.6s ease-out;
+  `;
+
+  // Create animation if needed
+  if (!document.querySelector('style#magic-effect-style')) {
+    const style = document.createElement('style');
+    style.id = 'magic-effect-style';
+    style.textContent = `
+      @keyframes magic-pulse {
+        0% { transform: scale(0.5); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: scale(1.2); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Ensure element has position
+  if (window.getComputedStyle(button).position === 'static') {
+    button.style.position = 'relative';
+  }
+
+  // Add glow to button
+  button.appendChild(glow);
+
+  // Clean up after animation
+  setTimeout(() => {
+    if (glow.parentNode === button) {
+      button.removeChild(glow);
+    }
+  }, 600);
+
+  // Play magic sound effect
+  document.dispatchEvent(new Event('magic-effect'));
+};
+
+// Trigger hover effect on file items
+const triggerItemHoverEffect = (event) => {
+  // Only if we're in the Morrowind theme
+  if (!isActive) return;
+
+  const item = event.currentTarget;
+
+  // Add subtle glow to item
+  item.style.boxShadow = '0 0 8px rgba(255, 215, 0, 0.3)';
+
+  // Reset after a short delay
+  setTimeout(() => {
+    item.style.boxShadow = '';
+  }, 800);
+
+  // Random chance to play scroll sound (30%)
+  if (Math.random() < 0.3) {
+    document.dispatchEvent(new Event('scroll-effect'));
+  }
+};
+
+// Add Daedric UI specific event handlers
+const addDaedricEventHandlers = () => {
+  // Log important events with themed messages
+
+  // File opened
+  document.addEventListener('file-opened', (e) => {
+    if (isActive) {
+      // Play scroll sound
+      document.dispatchEvent(new Event('scroll-effect'));
+
+      // Add whisper message
+      if (window.chimeraWhisper) {
+        const fileName = e.detail ? e.detail.fileName : 'unknown scroll';
+        window.chimeraWhisper.addMessage(`The ancient scroll "${fileName}" unfurls before you.`, 'from-ai');
+      }
+    }
+  });
+
+  // File saved
+  document.addEventListener('file-saved', (e) => {
+    if (isActive) {
+      // Play magic sound
+      document.dispatchEvent(new Event('magic-effect'));
+
+      // Add whisper message
+      if (window.chimeraWhisper) {
+        window.chimeraWhisper.addMessage('Your incantations have been inscribed in the eternal scrolls.', 'from-ai');
+      }
+    }
+  });
+};
+
+// Initialize when the document is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  initDaedricUI();
+
+  // Export API for use in other modules
+  window.chimeraDaedricUI = {
+    activate: activateDaedricUI,
+    deactivate: deactivateDaedricUI,
+    daedricizeText: daedricizeText,
+    triggerMagicEffect: () => document.dispatchEvent(new Event('magic-effect'))
+  };
+});
   const items = document.querySelectorAll('[data-daedric-hover]');
   items.forEach(item => {
     item.removeEventListener('mouseenter', triggerItemHoverEffect);

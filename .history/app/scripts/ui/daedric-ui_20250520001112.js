@@ -13,8 +13,8 @@ let isActive = false;
 // Initialize Daedric UI elements
 const initDaedricUI = () => {
   // Monitor theme changes
-  const body = document.body;
-  const currentTheme = body.classList.contains('theme-lain') ? 'lain' : 'morrowind';
+  const themeStylesheet = document.getElementById('theme-stylesheet');
+  const currentTheme = themeStylesheet.href.includes('lain') ? 'lain' : 'morrowind';
 
   // Only apply Daedric UI for Morrowind theme
   if (currentTheme === 'morrowind') {
@@ -24,8 +24,8 @@ const initDaedricUI = () => {
   // Observer for theme changes
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
-      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-        const newTheme = body.classList.contains('theme-lain') ? 'lain' : 'morrowind';
+      if (mutation.type === 'attributes' && mutation.attributeName === 'href') {
+        const newTheme = themeStylesheet.href.includes('lain') ? 'lain' : 'morrowind';
 
         if (newTheme === 'morrowind' && !isActive) {
           activateDaedricUI();
@@ -36,7 +36,7 @@ const initDaedricUI = () => {
     });
   });
 
-  observer.observe(body, { attributes: true });
+  observer.observe(themeStylesheet, { attributes: true });
 
   // Add custom event handlers
   addDaedricEventHandlers();

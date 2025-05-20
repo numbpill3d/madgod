@@ -1,0 +1,426 @@
+/* CHIMERA Code Editor - Morrowind Theme */
+/* Inspired by The Elder Scrolls III: Morrowind and ancient scrolls */
+
+:root {
+  --morrowind-bg: #1a1410;
+  --morrowind-bg-alt: #241c15;
+  --morrowind-text: #e8cba0;
+  --morrowind-text-dim: #a78d5d;
+  --morrowind-accent: #d7a45e; /* Gold */
+  --morrowind-accent-dim: #8e6c3d;
+  --morrowind-border: #3c2e1e;
+  --morrowind-shadow: rgba(215, 164, 94, 0.2);
+  --morrowind-error: #b33a3a;
+  --morrowind-warning: #b38a3a;
+  --morrowind-success: #7a943c;
+  --morrowind-selection: rgba(215, 164, 94, 0.2);
+  --morrowind-parchment: #f5e7cb;
+}
+
+/* Apply theme to body */
+body.theme-morrowind {
+  background-color: var(--morrowind-bg);
+  color: var(--morrowind-text);
+  font-family: 'Daedric', serif;
+  background-image: url('../../assets/images/backgrounds/parchment-bg.png');
+  background-repeat: repeat;
+  background-size: 300px;
+}
+
+/* Titlebar */
+#titlebar {
+  background-color: var(--titlebar-bg);
+  color: var(--titlebar-fg);
+  border-bottom: 1px solid var(--panel-border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#titlebar-title {
+  font-family: 'DaedricFont', serif;
+  letter-spacing: 3px;
+}
+
+.titlebar-btn {
+  color: var(--foreground-color);
+}
+
+.titlebar-btn:hover {
+  color: var(--highlight-color);
+}
+
+/* Panels */
+.panel {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+  background-image: url('../assets/images/backgrounds/scroll-texture.png');
+  background-repeat: repeat;
+  background-size: 200px;
+}
+
+#scroll-header, #whisper-header {
+  background-color: var(--header-bg);
+  color: var(--header-fg);
+  font-family: 'DaedricFont', serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border-bottom: 1px solid var(--panel-border);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Inputs */
+input, select, textarea {
+  background-color: var(--input-bg);
+  color: var(--input-fg);
+  border: 1px solid var(--input-border);
+  padding: 5px;
+  font-family: 'LainTerminal', monospace;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 1px solid var(--highlight-color);
+}
+
+/* Buttons */
+.daedric-btn {
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  font-family: 'DaedricFont', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all var(--transition-speed);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--panel-border);
+}
+
+.daedric-btn:hover {
+  background-color: var(--button-hover);
+  color: var(--highlight-color);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.daedric-btn::before {
+  background-color: rgba(232, 203, 154, 0.1);
+}
+
+/* Editor tabs */
+.editor-tab {
+  background-color: var(--tab-inactive-bg);
+  color: var(--tab-inactive-fg);
+  transition: all var(--transition-speed);
+  border-right: 1px solid var(--panel-border);
+  font-family: 'DaedricFont', serif;
+}
+
+.editor-tab.active {
+  background-color: var(--tab-active-bg);
+  color: var(--tab-active-fg);
+}
+
+.editor-tab.active::after {
+  background-color: var(--secondary-color);
+}
+
+.tab-close:hover {
+  background-color: var(--error-color);
+}
+
+/* Status bar */
+#status-bar {
+  background-color: var(--status-bar-bg);
+  color: var(--status-bar-fg);
+  border-top: 1px solid var(--panel-border);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#status-mode {
+  color: var(--highlight-color);
+  font-family: 'DaedricFont', serif;
+}
+
+#neural-thread-indicator .thread-node {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--foreground-color);
+}
+
+#neural-thread-indicator .thread-node.active {
+  background-color: var(--highlight-color);
+}
+
+#neural-thread-indicator .thread-line {
+  background-color: var(--secondary-color);
+}
+
+/* Modal dialog */
+.modal-content {
+  background-color: var(--modal-bg);
+  color: var(--modal-fg);
+  border: 2px solid var(--panel-border);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  background-image: url('../assets/images/backgrounds/scroll-texture.png');
+  background-repeat: repeat;
+  background-size: 200px;
+}
+
+.modal-header {
+  background-color: var(--modal-header-bg);
+  border-bottom: 1px solid var(--panel-border);
+  font-family: 'DaedricFont', serif;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--panel-border);
+}
+
+/* Loading lore screen */
+#loading-lore {
+  background-color: var(--background-color);
+  color: var(--highlight-color);
+  background-image: url('../assets/images/backgrounds/parchment-texture.png');
+  background-repeat: repeat;
+  background-size: 400px;
+}
+
+#loading-sigil {
+  background-image: url('../assets/images/ui/daedric-sigil.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: rotate 4s infinite linear;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#loading-text {
+  font-family: 'DaedricFont', serif;
+  text-align: center;
+  max-width: 600px;
+  letter-spacing: 2px;
+}
+
+/* File explorer */
+.file-item:hover {
+  background-color: rgba(232, 203, 154, 0.1);
+}
+
+.file-item.active {
+  background-color: rgba(232, 203, 154, 0.2);
+}
+
+/* Whisper messages */
+.whisper-message.from-ai {
+  background-color: var(--tertiary-color);
+  border-left: 3px solid var(--secondary-color);
+  font-family: 'DaedricFont', serif;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.whisper-message.from-user {
+  background-color: var(--panel-bg);
+  border-right: 3px solid var(--secondary-color);
+  font-family: 'LainTerminal', monospace;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Git portal */
+.portal-status {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--foreground-color);
+}
+
+.portal-status.modified {
+  background-color: var(--warning-color);
+}
+
+.portal-status.staged {
+  background-color: var(--info-color);
+}
+
+.portal-status.clean {
+  background-color: var(--success-color);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-bg);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border: 1px solid var(--panel-border);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--secondary-color);
+}
+
+/* File type colors */
+.file-js .file-icon { color: var(--file-js); }
+.file-html .file-icon { color: var(--file-html); }
+.file-css .file-icon { color: var(--file-css); }
+.file-json .file-icon { color: var(--file-json); }
+.file-md .file-icon { color: var(--file-md); }
+.file-image .file-icon { color: var(--file-image); }
+.file-unknown .file-icon { color: var(--file-unknown); }
+
+/* Loading animation */
+.loading-animation {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 20px;
+}
+
+.loading-animation div {
+  position: absolute;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 0;
+  background: var(--highlight-color);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  transform: rotate(45deg);
+}
+
+.loading-animation div:nth-child(1) {
+  left: 8px;
+  animation: loading1-morrowind 0.6s infinite;
+}
+
+.loading-animation div:nth-child(2) {
+  left: 8px;
+  animation: loading2-morrowind 0.6s infinite;
+}
+
+.loading-animation div:nth-child(3) {
+  left: 32px;
+  animation: loading2-morrowind 0.6s infinite;
+}
+
+.loading-animation div:nth-child(4) {
+  left: 56px;
+  animation: loading3-morrowind 0.6s infinite;
+}
+
+@keyframes loading1-morrowind {
+  0% { transform: scale(0) rotate(45deg); }
+  100% { transform: scale(1) rotate(45deg); }
+}
+
+@keyframes loading2-morrowind {
+  0% { transform: translate(0, 0) rotate(45deg); }
+  100% { transform: translate(24px, 0) rotate(45deg); }
+}
+
+@keyframes loading3-morrowind {
+  0% { transform: scale(1) rotate(45deg); }
+  100% { transform: scale(0) rotate(45deg); }
+}
+
+/* Magical effects */
+.magic-text {
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+.magic-text::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: radial-gradient(ellipse at center, rgba(232, 203, 154, 0.2) 0%, rgba(232, 203, 154, 0) 70%);
+  z-index: -1;
+  opacity: 0;
+  animation: pulse-light 3s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pulse-light {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Paper texture effect for panels */
+.panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/images/backgrounds/paper-grain.png');
+  background-repeat: repeat;
+  background-size: 100px;
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Directional ambient light on panels */
+.panel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(232, 203, 154, 0.03) 0%, rgba(232, 203, 154, 0) 40%);
+  pointer-events: none;
+}
+
+/* Monaco Editor theme overrides */
+.monaco-editor .monaco-scrollable-element .scrollbar {
+  background-color: var(--scrollbar-bg) !important;
+}
+
+.monaco-editor .monaco-scrollable-element .slider {
+  background-color: var(--scrollbar-thumb) !important;
+}
+
+/* Custom Daedric Scroll Styling */
+#file-explorer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: 20px;
+  background-image: url('../assets/images/ui/scroll-top.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+#file-explorer::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: 20px;
+  background-image: url('../assets/images/ui/scroll-bottom.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* Magical illuminated border for active elements */
+.editor-tab.active, input:focus, .daedric-btn:hover {
+  box-shadow: 0 0 5px rgba(232, 203, 154, 0.5);
+}

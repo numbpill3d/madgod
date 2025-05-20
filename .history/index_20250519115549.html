@@ -5,33 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self';">
   <title>CHIMERA - Cybernetic Hypertextual Interface for Modular Embedded Runtime Authoring</title>
-
+  
   <!-- Base Styles -->
   <link rel="stylesheet" href="app/styles/main.css">
-
+  
   <!-- Default Theme (can be changed by user) -->
   <link id="theme-stylesheet" rel="stylesheet" href="app/styles/themes/lain.css">
-
+  
   <!-- Animation Effects -->
   <link rel="stylesheet" href="app/styles/animations.css">
-
+  
   <!-- Load Monaco Editor from CDN -->
   <script>window.MonacoEnvironment = { getWorkerUrl: () => '' };</script>
 </head>
-<body class="theme-lain">
-  <!-- Window Controls -->
-  <div class="window-controls">
-    <button id="minimize-btn" type="button">-</button>
-    <button id="maximize-btn" type="button">□</button>
-    <button id="close-btn" type="button">×</button>
+<body>
+  <!-- Custom Titlebar -->
+  <div id="titlebar">
+    <div id="titlebar-title">CHIMERA</div>
+    <div id="titlebar-controls">
+      <button id="minimize-btn" class="titlebar-btn">-</button>
+      <button id="maximize-btn" class="titlebar-btn">□</button>
+      <button id="close-btn" class="titlebar-btn">×</button>
+    </div>
   </div>
-
+  
   <!-- Loading Quote/Lore - Shows briefly during startup -->
   <div id="loading-lore">
     <div id="loading-sigil"></div>
     <div id="loading-text">The Code is not Code, but a Matrix of Dreams...</div>
   </div>
-
+  
   <!-- Main UI Container -->
   <div id="main-container">
     <!-- Left sidebar - File Explorer as Scroll Rack -->
@@ -42,16 +45,16 @@
       </div>
       <div id="file-explorer"></div>
       <div id="project-controls">
-        <button id="open-project-btn" class="daedric-btn" type="button">Open Realm</button>
+        <button id="open-project-btn" class="daedric-btn">Open Realm</button>
       </div>
     </div>
-
+    
     <!-- Main Editor Area - Floating "Dream Bubbles" -->
     <div id="editor-container" class="panel">
       <div id="editor-tabs"></div>
       <div id="monaco-editor"></div>
     </div>
-
+    
     <!-- Right Sidebar - Whisper Tab & Tools -->
     <div id="whisper-panel" class="panel">
       <div id="whisper-header">WHISPERS</div>
@@ -60,9 +63,9 @@
       </div>
       <div id="whisper-input">
         <input type="text" id="whisper-query" placeholder="commune...">
-        <button id="whisper-send" class="daedric-btn" type="button">Ask</button>
+        <button id="whisper-send" class="daedric-btn">Ask</button>
       </div>
-
+      
       <!-- Tool Sections -->
       <div class="tool-section">
         <div class="tool-header">DIVINATION</div>
@@ -70,27 +73,27 @@
           <!-- Git Integration as Wormholes -->
           <div id="git-portal">
             <div class="portal-status"></div>
-            <button class="daedric-btn" id="git-commit" type="button">Bind Change</button>
-            <button class="daedric-btn" id="git-push" type="button">Send Forth</button>
+            <button class="daedric-btn" id="git-commit">Bind Change</button>
+            <button class="daedric-btn" id="git-push">Send Forth</button>
           </div>
         </div>
       </div>
-
+      
       <div class="tool-section">
         <div class="tool-header">CONSTELLATION</div>
         <div class="tool-content">
           <!-- Task Runner -->
           <div id="task-runner">
-            <select id="task-select" aria-label="Select task to run">
+            <select id="task-select">
               <option value="">Select Ritual...</option>
             </select>
-            <button class="daedric-btn" id="run-task" type="button">Invoke</button>
+            <button class="daedric-btn" id="run-task">Invoke</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-
+  
   <!-- Status Bar - Neural Thread -->
   <div id="status-bar">
     <div id="status-left">
@@ -107,13 +110,13 @@
     <div id="status-right">
       <span id="encoding-info">UTF-8</span>
       <span id="filetype-info">JS</span>
-      <button id="theme-toggle" class="status-btn" type="button">REALM</button>
+      <button id="theme-toggle" class="status-btn">REALM</button>
     </div>
   </div>
-
+  
   <!-- 3D Background Canvas -->
   <canvas id="background-canvas"></canvas>
-
+  
   <!-- Modal Dialog for Merge Conflicts -->
   <div id="merge-scroll-modal" class="modal">
     <div class="modal-content">
@@ -125,27 +128,26 @@
         <div id="merge-conflict-display"></div>
       </div>
       <div class="modal-footer">
-        <button class="daedric-btn" id="resolve-conflicts" type="button">Resolve Conflicts</button>
+        <button class="daedric-btn" id="resolve-conflicts">Resolve Conflicts</button>
       </div>
     </div>
   </div>
-
+  
   <!-- Module Loader Script -->
   <script type="module">
     // Load modules in order
     import './app/scripts/effects/three-setup.js';
+    import './app/scripts/editor/monaco-setup.js';
+    import './app/scripts/ui/daedric-ui.js';
+    import './app/scripts/ui/neural-ui.js';
+    import './app/scripts/ui/file-explorer.js';
+    import './app/scripts/ui/whisper-tab.js';
+    import './app/scripts/features/git-integration.js';
+    import './app/scripts/features/task-runner.js';
+    import './app/scripts/features/neural-thread.js';
     import './app/scripts/effects/glitch.js';
     import './app/scripts/effects/ambient-sound.js';
-
-    import './app/scripts/ui/neural-ui.js';
-    import './app/scripts/ui/daedric-ui.js';
-
-    import './app/scripts/features/whisper.js';
-    import './app/scripts/features/file-explorer.js';
-    import './app/scripts/features/editor.js';
-    import './app/scripts/features/git-portal.js';
-    import './app/scripts/features/task-runner.js';
-
+    
     // Initialize the application
     import './app/scripts/main.js';
   </script>
